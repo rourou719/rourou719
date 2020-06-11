@@ -20,15 +20,19 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="YAO">
-<meta property="og:url" content="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+  <meta name="description" content="递归的三大要素 第一要素：明确你这个函数要干什么明确函数的功能，要完成的事是什么，例如定义了一个函数  123&#x2F;&#x2F; 算n的阶乘int f(int n&amp;#123;&amp;#125;  第二要素：寻找递归结束条件  所谓递归，就是在函数内部代码中，调用这个函数本身，所以，必须要找出递归的结束条件，不然会一直调用自己。也就是说，沃恩需要找出当参数为什么时，递归结束，然后把结果返回。 例如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="递归">
+<meta property="og:url" content="http://yoursite.com/2020/06/11/%E9%80%92%E5%BD%92/index.html">
 <meta property="og:site_name" content="YAO">
+<meta property="og:description" content="递归的三大要素 第一要素：明确你这个函数要干什么明确函数的功能，要完成的事是什么，例如定义了一个函数  123&#x2F;&#x2F; 算n的阶乘int f(int n&amp;#123;&amp;#125;  第二要素：寻找递归结束条件  所谓递归，就是在函数内部代码中，调用这个函数本身，所以，必须要找出递归的结束条件，不然会一直调用自己。也就是说，沃恩需要找出当参数为什么时，递归结束，然后把结果返回。 例如">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-11T01:18:00.000Z">
+<meta property="article:modified_time" content="2020-06-11T02:19:25.076Z">
 <meta property="article:author" content="maomao">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+<link rel="canonical" href="http://yoursite.com/2020/06/11/%E9%80%92%E5%BD%92/">
 
 
 <script id="page-configurations">
@@ -36,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Category: 数据库 | YAO</title>
+  <title>递归 | YAO</title>
   
 
 
@@ -155,51 +159,107 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">数据库
-          <small>Category</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/11/%E9%80%92%E5%BD%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.gif">
+      <meta itemprop="name" content="maomao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YAO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          递归
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-06-11 09:18:00 / Modified: 10:19:25" itemprop="dateCreated datePublished" datetime="2020-06-11T09:18:00+08:00">2020-06-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%80%92%E5%BD%92/" itemprop="url" rel="index"><span itemprop="name">递归</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <hr>
+<h3 id="递归的三大要素"><a href="#递归的三大要素" class="headerlink" title="递归的三大要素"></a>递归的三大要素</h3><ul>
+<li>第一要素：明确你这个函数要干什么<br>明确函数的功能，要完成的事是什么，例如定义了一个函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 算n的阶乘</span><br><span class="line">int f(int n&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二要素：寻找递归结束条件</li>
+</ul>
+<p>所谓递归，就是在函数内部代码中，调用这个函数本身，所以，必须要找出递归的结束条件，不然会一直调用自己。也就是说，沃恩需要找出当参数为什么时，递归结束，然后把结果返回。</p>
+<p>例如，上面那个例子，当n=1时，应该能够知道f(n)是啥，此时，f(1)=1。完善函数内部的代码，把第二要素加入代码，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;算n的阶乘（假设n不为0)</span><br><span class="line">int f(int n)&#123;</span><br><span class="line">  if(n&#x3D;&#x3D;1)&#123;</span><br><span class="line">  return 1;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>只要觉得参数是什么时，能够直接知道函数的结果，就可以把这个参数作为结束条件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;算n的阶乘（假设n&gt;&#x3D;2)</span><br><span class="line">int f(int n)&#123;</span><br><span class="line">   if(n&lt;&#x3D;2)&#123;</span><br><span class="line">   return n;</span><br><span class="line">   &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三要素：找出函数的等价关系式</li>
+</ul>
+<p>第三要素就是，我们要不断缩小参数的范围，缩小之后，通过一些辅助的变量或者操作，使原函数的结果不变。</p>
+<p>例如，f(n)这个范围比较大，可以让f(n)=n*f(n-1)。这样范围就由n变成了n-1，范围变小了，并且维勒原函数f(n)不变，需要让f(n-1)乘以n。</p>
+<p>说白了，就是要找到原函数的一个等价关系式，f(n)的等价关系式为n<em>f(n-1),即<br>f(n)=n</em>f(n-1)</p>
+<p>找出了这个等价，继续完善代码，把等价式写进函数里：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;算n的阶乘（假设n不为0）</span><br><span class="line">int f(int n)&#123;</span><br><span class="line">   if(n&lt;&#x3D;2)&#123;</span><br><span class="line">   return n;</span><br><span class="line">   &#125;</span><br><span class="line">   &#x2F;&#x2F;把f(n)的等价操作写进去</span><br><span class="line">   return f(n-1)*n;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>至此，递归三要素已经都写进代码里了，所以这个f(n)功能的内部代码已经写好。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-05T21:50:00+08:00"
-              content="2020-06-05">
-          06-05
-        </time>
-      </div>
+      <footer class="post-footer">
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E4%B8%80/" itemprop="url">
-            <span itemprop="name">数据库学习一</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/09/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="prev" title="二叉树">
+      <i class="fa fa-chevron-left"></i> 二叉树
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -252,6 +312,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归的三大要素"><span class="nav-number">1.</span> <span class="nav-text">递归的三大要素</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
