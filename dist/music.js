@@ -1,6 +1,6 @@
 {% aplayerlist %}
 {
-    "narrow": false,                          // （可选）播放器袖珍风格
+    "narrow": true,                          // （可选）播放器袖珍风格
     "autoplay": true,                         // （可选) 自动播放，移动端浏览器暂时不支持此功能
     "mode": "random",                         // （可选）曲目循环类型，有 'random'（随机播放）, 'single' (单曲播放), 'circulation' (循环播放), 'order' (列表播放)， 默认：'circulation' 
     "showlrc": 3,                             // （可选）歌词显示配置项，可选项有：1,2,3
