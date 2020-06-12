@@ -551,7 +551,7 @@ mysql --v</code></pre><h3 id="MySQL的语法规范"><a href="#MySQL的语法规�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-07 14:20:11" itemprop="dateModified" datetime="2020-06-07T14:20:11+08:00">2020-06-07</time>
+                <time title="Modified: 2020-06-12 08:18:51" itemprop="dateModified" datetime="2020-06-12T08:18:51+08:00">2020-06-12</time>
               </span>
 
           
@@ -565,9 +565,24 @@ mysql --v</code></pre><h3 id="MySQL的语法规范"><a href="#MySQL的语法规�
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="/images/pasted-1.png" alt="玖涯博客"></p>
-<p><img src="/images/pasted-3.png" alt="玖涯博客"></p>
-<p><img src="/images/pasted-4.png" alt="玖涯博客"></p>
+          <hr>
+<h3 id="进阶2：条件查询"><a href="#进阶2：条件查询" class="headerlink" title="进阶2：条件查询"></a>进阶2：条件查询</h3><p>/*<br>语法：<br>     select 查询列表<br>     from 表名<br>     where 筛选条件；</p>
+<p>分类：<br>     一 按条件表达式筛选<br>     条件运算符：&gt;&lt;=  不等号  &lt;&gt;<br>     二 按逻辑表达式筛选<br>     逻辑运算符：&amp; !||<br>                and not or<br>     三 模糊查询<br>     like<br>     between and<br>     in<br>     is null</p>
+<p>*/<br>#案例2：查询部门编号不等于90号的员工名和部门编号<br>SELECT<br>      last_name,<br>      department_id<br>FROM<br>     employees<br>WHERE<br>      department_id&lt;&gt;90;</p>
+<p>#三模糊查询<br>/*</p>
+<h3 id="like"><a href="#like" class="headerlink" title="like"></a>like</h3><p>特点：<br>1，一般和通配符搭配使用<br>通配符：<br>    %  任意多个字符，包含0个字符<br>    -  任意单个字符</p>
+<h3 id="between-and"><a href="#between-and" class="headerlink" title="between and"></a>between and</h3><p>1使用between and 可以提高语句的简介度</p>
+<p>2 包含临界值</p>
+<p>3 两个临界值不要调换顺序</p>
+<h3 id="in"><a href="#in" class="headerlink" title="in"></a>in</h3><h3 id="is-null-is-not-null"><a href="#is-null-is-not-null" class="headerlink" title="is null | is not null"></a>is null | is not null</h3><p>1 =或《》不能用于判断Null值</p>
+<p>is null 或 is not null 可以判断null值</p>
+<h4 id="is-null-pk-lt-gt-安全等于）"><a href="#is-null-pk-lt-gt-安全等于）" class="headerlink" title="is null  pk &lt;=&gt;(安全等于）"></a>is null  pk &lt;=&gt;(安全等于）</h4><p>is null :仅仅可以判断Null值，可读性高</p>
+<p>&lt;=&gt; :既可以判断Null值，又可以判断普通数值，可读性低</p>
+<p>*/<br>#案例1: 查询员工名中包含字符a的员工信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">      *</span><br><span class="line">   FROM </span><br><span class="line">    employees</span><br><span class="line">    WHERE</span><br><span class="line">      last_name  LIKE &#39;%a%&#39;;</span><br></pre></td></tr></table></figure>
+<p> #案例1：查询员工编号在100到120之间的员工信息<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    *</span><br><span class="line">FROM</span><br><span class="line">     employees </span><br><span class="line"> WHERE</span><br><span class="line">     employee_id&gt;&#x3D;100 AND employee_id&lt;&#x3D;120;</span><br></pre></td></tr></table></figure></p>
+<hr>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">     *</span><br><span class="line"> FROM </span><br><span class="line">     employees</span><br><span class="line"> WHERE</span><br><span class="line">     employee_id BETWEEN 100 AND 120;</span><br></pre></td></tr></table></figure>
 
       
     </div>
