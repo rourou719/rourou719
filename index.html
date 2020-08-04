@@ -163,6 +163,101 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/03/java-%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="maomao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YAO">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/03/java-%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD%EF%BC%89/" class="post-title-link" itemprop="url">java(方法重载继承）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-03 10:22:44" itemprop="dateCreated datePublished" datetime="2020-08-03T10:22:44+08:00">2020-08-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-04 15:38:26" itemprop="dateModified" datetime="2020-08-04T15:38:26+08:00">2020-08-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3><p>在一个类中，我们可以定义多个方法。如果有一系列方法，它们的功能都是类似的，只有参数有所不同，那么，可以把这一组方法名做成同名方法。例如，在Hello类中，定义多个hello()方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Hello &#123;</span><br><span class="line">    public void hello() &#123;</span><br><span class="line">        System.out.println(&quot;Hello, world!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void hello(String name) &#123;</span><br><span class="line">        System.out.println(&quot;Hello, &quot; + name + &quot;!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void hello(String name, int age) &#123;</span><br><span class="line">        if (age &lt; 18) &#123;</span><br><span class="line">            System.out.println(&quot;Hi, &quot; + name + &quot;!&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            System.out.println(&quot;Hello, &quot; + name + &quot;!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方法名相同，但各自的参数不同，称为方法重载（Overload）。</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>发现Student类包含了Person类已有的字段和方法，只是多出了一个score字段和相应的getScore()、setScore()方法</p>
+<p>继承是面向对象编程中非常强大的一种机制，它首先可以复用代码。当我们让Student从Person继承时，Student就获得了Person的所有功能，我们只需要为Student编写新增的功能。</p>
+<p>Java使用 extends关键字来实现继承：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;...&#125;</span><br><span class="line">    public void setName(String name) &#123;...&#125;</span><br><span class="line">    public int getAge() &#123;...&#125;</span><br><span class="line">    public void setAge(int age) &#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Student extends Person &#123;</span><br><span class="line">    &#x2F;&#x2F; 不要重复name和age字段&#x2F;方法,</span><br><span class="line">    &#x2F;&#x2F; 只需要定义新增score字段&#x2F;方法:</span><br><span class="line">    private int score;</span><br><span class="line"></span><br><span class="line">    public int getScore() &#123; … &#125;</span><br><span class="line">    public void setScore(int score) &#123; … &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可见，通过继承，Student只需要编写额外的功能，不再需要重复代码</p>
+<p>!注意：子类自动获得父类的所有字段，严禁定义与父类重名的字段。<br>Java只允许一个class继承自一个类，因此，一个类有且仅有一个父类。只有Object特殊，它没有父类。</p>
+<p>protected</p>
+<p>继承有个特点，就是子类无法访问父类的private字段或者private方法。例如，Student类就无法访问Person类的name和age字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Student extends Person &#123;</span><br><span class="line">    public String hello() &#123;</span><br><span class="line">        return &quot;Hello, &quot; + name; &#x2F;&#x2F; 编译错误：无法访问name字段</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这使得继承的作用被削弱了。为了让子类可以访问父类的字段，我们需要把private改为protected。用protected修饰的字段可以被子类访问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">    protected String name;</span><br><span class="line">    protected int age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Student extends Person &#123;</span><br><span class="line">    public String hello() &#123;</span><br><span class="line">        return &quot;Hello, &quot; + name; &#x2F;&#x2F; OK!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因此，protected关键字可以把字段和方法的访问权限控制在继承树内部，一个protected字段和方法可以被其子类，以及子类的子类所访问</p>
+<h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3><p>super关键字表示父类（超类）。子类引用父类的字段时，可以用super.fieldName</p>
+<h3 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a>向上转型</h3><p>如果一个引用变量的类型是Student，那么它可以指向一个Student类型的实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student s &#x3D; new Student();</span><br></pre></td></tr></table></figure>
+<p>现在问题来了：如果Student是从Person继承下来的，那么，一个引用类型为Person的变量，能否指向Student类型的实例？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person p &#x3D; new Student();</span><br></pre></td></tr></table></figure>
+
+<p>这是因为Student继承自Person，因此，它拥有Person的全部功能。Person类型的变量，如果指向Student类型的实例，对它进行操作，是没有问题的！</p>
+<p>这种把一个子类类型安全地变为父类类型的赋值，被称为向上转型（upcasting）。</p>
+<p>向上转型实际上是把一个子类型安全地变为更加抽象的父类型：</p>
+<p>继承和组合的关系：</p>
+<p>Student是Person的一种，它们是is关系，而Student并不是Book。实际上Student和Book的关系是has关系</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Student extends Person &#123;</span><br><span class="line">    protected Book book;</span><br><span class="line">    protected int score;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>继承是is关系，组合是has关系</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/02/java-%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -987,7 +1082,7 @@ mysql --v</code></pre><h3 id="MySQL的语法规范"><a href="#MySQL的语法规�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
