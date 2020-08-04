@@ -163,6 +163,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/04/java-%E5%A4%9A%E6%80%81%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="maomao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YAO">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/04/java-%E5%A4%9A%E6%80%81%EF%BC%89/" class="post-title-link" itemprop="url">java(多态）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-04 15:42:00 / Modified: 17:24:27" itemprop="dateCreated datePublished" datetime="2020-08-04T15:42:00+08:00">2020-08-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<h3 id="覆写（Override）"><a href="#覆写（Override）" class="headerlink" title="覆写（Override）"></a>覆写（Override）</h3><p>Override和Overload不同的是，如果方法签名如果不同，就是Overload，Overload方法是一个新方法；如果方法签名相同，并且返回值也相同，就是Override。</p>
+<p>Java的实例方法调用是基于运行时的实际类型的动态调用，而非变量的声明类型。</p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>多态是指，针对某个类型的方法调用，其真正执行的方法取决于运行时期实际类型的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Person p &#x3D; new Student();</span><br><span class="line">p.run(); &#x2F;&#x2F; 无法确定运行时究竟调用哪个run()方法</span><br></pre></td></tr></table></figure>
+
+<h4 id="覆写Object方法"><a href="#覆写Object方法" class="headerlink" title="覆写Object方法"></a>覆写Object方法</h4><p>因为所有的class最终都继承自Object，而Object定义了几个重要的方法：</p>
+<p>toString()：把instance输出为String；</p>
+<p>equals()：判断两个instance是否逻辑相等；</p>
+<p>hashCode()：计算一个instance的哈希值。</p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>final修饰符有多种作用：</p>
+<p>final修饰的方法可以阻止被覆写；</p>
+<p>final修饰的class可以阻止被继承；</p>
+<p>final修饰的field必须在创建对象时初始化，随后不可修改。</p>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>如果父类的方法本身不需要实现任何功能，仅仅是为了定义方法签名，目的是让子类去覆写它，那么，可以把父类的方法声明为抽象方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">    public abstract void run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>把一个方法声明为abstract，表示它是一个抽象方法，本身没有实现任何方法语句。因为这个抽象方法本身是无法执行的，所以，Person类也无法被实例化。编译器会告诉我们，无法编译Person类，因为它包含抽象方法。</p>
+<p>必须把Person类本身也声明为abstract，才能正确编译它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">abstract class Person &#123;</span><br><span class="line">    public abstract void run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用abstract修饰的类就是抽象类。我们无法实例化一个抽象类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person p &#x3D; new Person(); &#x2F;&#x2F; 编译错误</span><br></pre></td></tr></table></figure>
+
+<p>抽象类的作用:因为抽象类本身被设计成只能用于被继承，因此，抽象类可以强迫子类实现其定义的抽象方法，否则编译会报错。因此，抽象方法实际上相当于定义了“规范”。</p>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>在抽象类中，抽象方法本质上是定义接口规范：即规定高层类的接口，从而保证所有子类都有相同的接口实现，这样，多态就能发挥出威力。</p>
+<p>default方法</p>
+<p>在接口中，可以定义default方法。例如，把Person接口的run()方法改为default方法：</p>
+<p>实现类可以不必覆写default方法。default方法的目的是，当我们需要给接口新增一个方法时，会涉及到修改全部子类。如果新增的是default方法，那么子类就不必全部修改，只需要在需要覆写的地方去覆写新增方法。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/03/java-%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -187,15 +281,24 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-08-03 10:22:44" itemprop="dateCreated datePublished" datetime="2020-08-03T10:22:44+08:00">2020-08-03</time>
+              <time title="Created: 2020-08-03 10:22:00" itemprop="dateCreated datePublished" datetime="2020-08-03T10:22:00+08:00">2020-08-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-04 15:38:26" itemprop="dateModified" datetime="2020-08-04T15:38:26+08:00">2020-08-04</time>
+                <time title="Modified: 2020-08-04 15:42:45" itemprop="dateModified" datetime="2020-08-04T15:42:45+08:00">2020-08-04</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
 
           
 
@@ -281,9 +384,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-08-02 14:58:53 / Modified: 19:16:18" itemprop="dateCreated datePublished" datetime="2020-08-02T14:58:53+08:00">2020-08-02</time>
+              <time title="Created: 2020-08-02 14:58:00" itemprop="dateCreated datePublished" datetime="2020-08-02T14:58:00+08:00">2020-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-04 15:42:59" itemprop="dateModified" datetime="2020-08-04T15:42:59+08:00">2020-08-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
             </span>
 
           
@@ -932,90 +1050,11 @@ mysql --v</code></pre><h3 id="MySQL的语法规范"><a href="#MySQL的语法规�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E4%BA%8C-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="maomao">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YAO">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E4%BA%8C-1/" class="post-title-link" itemprop="url">数据库学习二</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-06-05 23:17:00" itemprop="dateCreated datePublished" datetime="2019-06-05T23:17:00+08:00">2019-06-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-12 08:18:51" itemprop="dateModified" datetime="2020-06-12T08:18:51+08:00">2020-06-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<h3 id="进阶2：条件查询"><a href="#进阶2：条件查询" class="headerlink" title="进阶2：条件查询"></a>进阶2：条件查询</h3><p>/*<br>语法：<br>     select 查询列表<br>     from 表名<br>     where 筛选条件；</p>
-<p>分类：<br>     一 按条件表达式筛选<br>     条件运算符：&gt;&lt;=  不等号  &lt;&gt;<br>     二 按逻辑表达式筛选<br>     逻辑运算符：&amp; !||<br>                and not or<br>     三 模糊查询<br>     like<br>     between and<br>     in<br>     is null</p>
-<p>*/<br>#案例2：查询部门编号不等于90号的员工名和部门编号<br>SELECT<br>      last_name,<br>      department_id<br>FROM<br>     employees<br>WHERE<br>      department_id&lt;&gt;90;</p>
-<p>#三模糊查询<br>/*</p>
-<h3 id="like"><a href="#like" class="headerlink" title="like"></a>like</h3><p>特点：<br>1，一般和通配符搭配使用<br>通配符：<br>    %  任意多个字符，包含0个字符<br>    -  任意单个字符</p>
-<h3 id="between-and"><a href="#between-and" class="headerlink" title="between and"></a>between and</h3><p>1使用between and 可以提高语句的简介度</p>
-<p>2 包含临界值</p>
-<p>3 两个临界值不要调换顺序</p>
-<h3 id="in"><a href="#in" class="headerlink" title="in"></a>in</h3><h3 id="is-null-is-not-null"><a href="#is-null-is-not-null" class="headerlink" title="is null | is not null"></a>is null | is not null</h3><p>1 =或《》不能用于判断Null值</p>
-<p>is null 或 is not null 可以判断null值</p>
-<h4 id="is-null-pk-lt-gt-安全等于）"><a href="#is-null-pk-lt-gt-安全等于）" class="headerlink" title="is null  pk &lt;=&gt;(安全等于）"></a>is null  pk &lt;=&gt;(安全等于）</h4><p>is null :仅仅可以判断Null值，可读性高</p>
-<p>&lt;=&gt; :既可以判断Null值，又可以判断普通数值，可读性低</p>
-<p>*/<br>#案例1: 查询员工名中包含字符a的员工信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">      *</span><br><span class="line">   FROM </span><br><span class="line">    employees</span><br><span class="line">    WHERE</span><br><span class="line">      last_name  LIKE &#39;%a%&#39;;</span><br></pre></td></tr></table></figure>
-<p> #案例1：查询员工编号在100到120之间的员工信息<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    *</span><br><span class="line">FROM</span><br><span class="line">     employees </span><br><span class="line"> WHERE</span><br><span class="line">     employee_id&gt;&#x3D;100 AND employee_id&lt;&#x3D;120;</span><br></pre></td></tr></table></figure></p>
-<hr>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">     *</span><br><span class="line"> FROM </span><br><span class="line">     employees</span><br><span class="line"> WHERE</span><br><span class="line">     employee_id BETWEEN 100 AND 120;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -1082,14 +1121,14 @@ mysql --v</code></pre><h3 id="MySQL的语法规范"><a href="#MySQL的语法规�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
